@@ -100,6 +100,9 @@ typedef struct{
 	int64_t date, ID;
 	int16_t n300, n100, n50, nGeki, nKatu, nMiss, maxCombo;
 	double addModInfo; //target Practice
+
+	int32_t length;
+	uint8_t *replayData;
 } Score;
 
 typedef struct{

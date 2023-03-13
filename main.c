@@ -37,20 +37,30 @@ main(int argc, char **argv)
 		Buffer buf = { .ptr = (uint8_t*)readFile(argv[i], &len) };
 
 		/*
+		//osu!.db
 		OsuDB osudb = parseOsuDB(&buf);
 		for(int i = 0; i < osudb.beatmaps; i++)
 			printBeatmap(osudb.beatmap[i]);
 		*/
 
 		/*
+		//scores.db
 		ScoreDB scoredb = parseScoreDB(&buf);
-		for(int i = 0; i < scoredb.map[0].scores; i++)
-			printScore(scoredb.map[0].score[i]);
+		for(int j = 0; j < scoredb.maps; j++)
+			for(int i = 0; i < scoredb.map[j].scores; i++)
+				printScore(scoredb.map[j].score[i]);
 		*/
 
+		/*
+		//collection.db
 		CollectionDB db = parseCollectionDB(&buf);
 		for(int i = 0; i < db.collections; i++)
 			printCollection(db.collection[i]);
+		*/
+
+		//osr
+		Score score = parseScore(&buf);
+		printScore(score);
 	}
 
 	return 0;

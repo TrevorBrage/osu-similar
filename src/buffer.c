@@ -219,7 +219,12 @@ parseScore(Buffer *buf)
 
 	parseOsuStr(buf); //empty string
 	r.date = parsei64(buf);
-	parsei32(buf); //0xffffffff
+	r.length = parsei32(buf);
+	if(r.length != -1){
+		r.replayData = buf->ptr;
+		buf->ptr += r.length;
+	}
+
 	r.ID = parsei64(buf);
 
 	if(r.mods & (1<<23)){ //target practice
