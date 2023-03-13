@@ -8,7 +8,7 @@ OBJ := $(SRC:.c=.o)
 
 default: all
 
-all: OsuSimular
+all: OsuSimilar
 
 clean:
 	rm -f CC ${OBJ}
@@ -16,7 +16,7 @@ clean:
 %.o: %.c
 	${CC} ${CFLAGS} -c $< -o $@
 
-OsuSimular: main.c ${OBJ}
+OsuSimilar: main.c ${OBJ}
 	${CC} ${CFLAGS} $^ -o $@
 
 .PHONY: all clean
